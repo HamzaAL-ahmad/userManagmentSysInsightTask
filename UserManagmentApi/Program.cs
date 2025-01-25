@@ -22,7 +22,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 })
 .AddEntityFrameworkStores<ApplicationDbContext>()
 .AddDefaultTokenProviders();
-builder.Services.AddDistributedMemoryCache();  // You can also use Redis or SQL Server for session storage
+builder.Services.AddDistributedMemoryCache();  
 
 builder.Services.AddAuthorization();
 
