@@ -1,0 +1,206 @@
+﻿@page
+<style>
+    body {
+        display: grid;
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 0;
+        align-items: start;
+        min-height: 100vh;
+        background-color: #f7f7f7;
+    }
+
+    .form-title {
+        background: #483d811A;
+        border: 1px solid #ccc;
+        border-radius: 8px 8px 0 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container {
+        padding: 10px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .title-info{
+        margin: 10px;
+        color: #214946;
+        padding: 2px;
+    }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            width: 100%;
+            color: #333;
+        }
+
+    .form-wrapper{
+        display: grid;
+        gap: 0;
+        margin: 0;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+        .form-group label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+    .row {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-column-gap: 4px;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 100%;
+    }
+
+    .form-actions {
+        display: flex;
+        justify-content: space-between;
+    }
+
+        .form-actions button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-actions .save {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .form-actions .back {
+            background-color: #f44336;
+            color: white;
+        }
+
+    .btn-group {
+        display: grid;
+        grid-template-columns: repeat(2,100px);
+        margin: 0;
+        padding: 10px;
+        justify-content: end;
+        gap: 4px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        color: #214946;
+        border: none;
+        border-radius: 4px;
+        border: solid 1px #214946;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+        .btn:hover {
+            background-color: #214946;
+            color: #f4f4f4;
+        }
+
+    @@media (max-width: 480px) {
+        .form-actions {
+            flex-direction: column;
+        }
+
+            .form-actions button {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+                .form-actions button:last-child {
+                    margin-bottom: 0;
+                }
+    }
+</style>
+<body>
+    <div class="btn-group">
+        <button class="btn" id="back" onclick="">back</button>
+        <button class="btn" id="save" onclick="">Save</button>
+    </div>
+    <div class="form-wrapper">
+        <div class="form-title">
+            <h3 class="title-info">User Information</h3>
+        </div>
+        <div class="form-container">
+            <form class="form" id="user-form">
+                <div class="row">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login">Login</label>
+                        <input type="text" id="login" name="login" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <select id="country" name="country" required>
+                            <option value="Jordan">Jordan</option>
+                            <option value="USA">USA</option>
+                            <option value="UK">UK</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <select id="city" name="city" required>
+                            <option value="Amman">Amman</option>
+                            <option value="Zarqa">Zarqa</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" name="address">
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="skills">Skills</label>
+                    <input type="text" id="skills" name="skills">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('back').addEventListener('click', () => {
+            alert('Go back button clicked!');
+        });
+
+        document.querySelector('#user-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Form submitted successfully!');
+        });
+    </script>
+</body>

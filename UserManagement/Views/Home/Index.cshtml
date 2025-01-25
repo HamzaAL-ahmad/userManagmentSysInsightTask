@@ -1,0 +1,101 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+        min-height: 100vh;
+    }
+</style>
+<body>
+    <div class="btn-wrapper">
+        <button id="addBtn" class="add-btn" onclick="redirectToAddUser()">Add</button>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Birthday</th>
+                    <th>Skills</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>User1 - Male</td>
+                    <td>User1@gmail.com</td>
+                    <td>Amman - Jordan - User Address</td>
+                    <td>15/01/2000</td>
+                    <td>User Skills</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>User2 - Male</td>
+                    <td>User2@gmail.com</td>
+                    <td>Amman - Jordan - User Address</td>
+                    <td>15/01/2000</td>
+                    <td>User Skills</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+<script>
+    window.onload = function () {
+        let flag = false;
+        let token = sessionStorage.getItem('AuthToken');
+        if (token !== null) {
+            if (!flag) {
+                $.ajax({
+                    url: "http://localhost:5165/api/User/users",
+                    method: "GET",
+                    contentType: "application/json",
+                    success: function (response) {
+                        flag = true;
+                        let tbody = document.querySelector("tbody");
+                        tbody.innerHTML = "";
+                        users = Object.values(response);
+                        console.log(users);
+                        users[1].forEach((user, index) => {
+                            let row = `
+                                    <tr>
+                                        <td>${index + 1}</td>
+                                        <td>${user.applicationUser.userName} - ${user.gender}</td>
+                                        <td>${user.email}</td>
+                                        <td>${user.address}</td>
+                                        <td>${user.birthday}</td>
+                                        <td>${user.skills}</td>
+                                    </tr>
+                                `;
+                            tbody.innerHTML += row;
+                        });
+                    },
+                    error: function (xhr) {
+
+                        const errorMessage = xhr.responseText || "An error occurred during login.";
+                        $("#error-message").css("color", "red").text(errorMessage);
+                        console.log("error")
+                    }
+                });
+            }
+
+        } else {
+            window.location = window.location.origin + '/Home/Login';
+        }
+
+
+    }
+    function redirectToAddUser() {
+        window.location = window.location.origin + '/Home/AddUser';
+    }
+</script>

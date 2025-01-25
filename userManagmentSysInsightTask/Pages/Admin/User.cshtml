@@ -1,0 +1,146 @@
+﻿@page
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=groups_2" />
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #f7f7f7;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #483d811A;
+        border-radius: 8px;
+    }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+            margin: 0;
+        }
+
+            .header .logo h1 {
+                font-size: 1.2rem;
+                margin-left: 20px;
+            }
+
+    .header {
+    }
+
+        .header a {
+            padding: 10px 15px;
+            font-size: 1rem;
+            cursor: pointer;
+            color: #000;
+            text-decoration: none;
+        }
+
+            .header a:visited {
+                color: #000;
+            }
+
+    .table-container {
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: white;
+    }
+
+        table thead {
+            background-color: #21494680;
+        }
+
+        table th, table td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            font-weight: bold;
+        }
+
+    .btn-wrapper {
+        display: grid;
+        justify-content: flex-end;
+    }
+
+    .add-btn {
+        padding: 10px 20px;
+        margin: 10px;
+        color: #214946;
+        border: none;
+        border-radius: 4px;
+        border: solid 1px #214946;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+        .add-btn:hover {
+            background-color: #214946;
+            color: #f4f4f4;
+        }
+
+
+
+    .material-symbols-rounded {
+        font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' -25, 'opsz' 24;
+        color: #214946  !important;
+        font-size: 2rem !important;
+    }
+
+
+</style>
+<body>
+    <div class="header">
+        <div class="logo">
+            <span class="material-symbols-outlined">
+                groups_2
+            </span>
+            <h1>Users</h1>
+        </div>
+        <a href="#">Logout</a>
+    </div>
+    <div class="btn-wrapper">
+        <button class="add-btn">Add</button>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Birthday</th>
+                    <th>Skills</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>User1 - Male</td>
+                    <td>User1@gmail.com</td>
+                    <td>Amman - Jordan - User Address</td>
+                    <td>15/01/2000</td>
+                    <td>User Skills</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>User2 - Male</td>
+                    <td>User2@gmail.com</td>
+                    <td>Amman - Jordan - User Address</td>
+                    <td>15/01/2000</td>
+                    <td>User Skills</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
