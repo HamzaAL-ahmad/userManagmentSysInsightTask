@@ -8,8 +8,11 @@
 ##dotnet ef migrations add <MigrationName>
 ##dotnet ef database update
 ##Seeding the Super Admin on First Run:
+
+
 ##admin credentials:
-##User Name: Admin:
-##Admin@123
+  ##User Name: Admin
+  ##Password:Admin@123
+
 ###Upon the first execution of the project, there is a method to seed the system with a super admin account. This allows you to access the system and manage users. Please ensure that this seeding process is implemented and executed properly during the first startup to avoid any login issues.
 
